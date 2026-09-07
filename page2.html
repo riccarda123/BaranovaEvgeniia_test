@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Баранова Евгения — резюме</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #7A1F2B;
+    --navy-deep: #4A1017;
+    --white: #FFFFFF;
+    --soft: #F7F3F3;
+    --line: #E5DEDE;
+    --text: #141414;
+    --text-soft: #6B5C5C;
+  }
+
+  * { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    background: var(--white);
+    color: var(--text);
+    font-family: 'Manrope', 'Segoe UI', Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .mono { font-family: 'IBM Plex Mono', 'SFMono-Regular', Consolas, monospace; }
+
+  a { color: inherit; }
+
+  .wrap { max-width: 760px; margin: 0 auto; padding: 0 28px; }
+  .wrap-wide { max-width: 980px; margin: 0 auto; padding: 0 28px; }
+
+  /* ---------- topbar ---------- */
+
+  .topbar { border-bottom: 1px solid var(--line); }
+
+  .topbar-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    font-size: 13px;
+    line-height: 1.6;
+    color: var(--text-soft);
+  }
+
+  .topbar-inner .lead { display: flex; align-items: center; gap: 12px; }
+
+  .mark {
+    width: 30px; height: 30px; border-radius: 7px;
+    background: var(--navy); color: #fff;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'IBM Plex Mono', monospace; font-weight: 600; font-size: 12px;
+    flex: none;
+  }
+
+  .topbar-inner .who { color: var(--text); font-weight: 600; }
+  .topbar-inner .who span { display: block; font-weight: 400; color: var(--text-soft); font-size: 12.5px; }
+
+  .btn-back {
+    display: inline-flex; align-items: center; gap: 7px;
+    background: transparent; color: var(--navy);
+    text-decoration: none; font-size: 13px; font-weight: 600;
+    padding: 8px 16px; border-radius: 5px; border: 1px solid var(--navy);
+    transition: background 0.15s ease, color 0.15s ease;
+  }
+
+  .btn-back:hover { background: var(--navy); color: #fff; }
+  .btn-back svg { width: 13px; height: 13px; flex: none; transform: rotate(180deg); }
+
+  /* ---------- hero ---------- */
+
+  .hero {
+    background: var(--navy-deep);
+    background-image: linear-gradient(160deg, var(--navy-deep) 0%, var(--navy) 100%);
+    color: var(--white);
+    padding: 56px 0 44px;
+  }
+
+  .hero-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+
+  .hero .role {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12.5px;
+    color: #E3C9C9;
+    margin: 0 0 10px;
+  }
+
+  .hero h1 {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 800;
+    font-size: clamp(28px, 4.4vw, 40px);
+    line-height: 1.15;
+    margin: 0 0 6px;
+  }
+
+  .hero .position {
+    font-size: 16.5px;
+    color: #E8CFCF;
+    margin: 0 0 26px;
+  }
+
+  .facts {
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    gap: 26px;
+    padding-top: 22px;
+    border-top: 1px solid rgba(255,255,255,0.18);
+  }
+
+  .facts .f-item .f-label {
+    display: block;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11.5px;
+    color: #C79797;
+    margin-bottom: 5px;
+  }
+
+  .facts .f-item .f-val { font-size: 14.5px; color: #fff; }
+
+  .contact-card {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.16);
+    border-radius: 8px;
+    padding: 18px 20px;
+    min-width: 230px;
+    font-size: 13.5px;
+  }
+
+  .contact-card .c-row { display: flex; gap: 10px; padding: 5px 0; color: #EFE0E0; }
+  .contact-card .c-row .c-key { color: #C79797; min-width: 78px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; }
+
+  /* ---------- sections ---------- */
+
+  section { padding: 48px 0; border-bottom: 1px solid var(--line); }
+  section:last-of-type { border-bottom: none; }
+
+  .kicker {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12.5px;
+    color: var(--navy);
+    margin: 0 0 8px;
+  }
+
+  h2 {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 700;
+    font-size: 24px;
+    margin: 0 0 24px;
+  }
+
+  p { font-size: 15.5px; line-height: 1.65; color: var(--text); margin: 0 0 12px; max-width: 64ch; }
+
+  /* experience timeline */
+
+  .job {
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    gap: 22px;
+    padding: 22px 0;
+    border-top: 1px solid var(--line);
+  }
+
+  .job:first-child { border-top: none; padding-top: 0; }
+
+  .job .period {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12.5px;
+    color: var(--text-soft);
+    line-height: 1.6;
+  }
+
+  .job .period .dur { display: block; color: var(--navy); margin-top: 4px; }
+
+  .job .company-row {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 4px;
+  }
+
+  .job h3 { font-family: 'Manrope', sans-serif; font-size: 17px; font-weight: 700; margin: 0; }
+  .job .loc { font-size: 13px; color: var(--text-soft); }
+  .job .title { font-size: 14.5px; font-weight: 600; color: var(--navy); margin: 4px 0 8px; }
+  .job p { font-size: 14.5px; margin: 0; max-width: 60ch; }
+
+  /* education */
+
+  .edu-group { margin-bottom: 8px; }
+  .edu-group h4 {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    color: var(--text-soft);
+    margin: 0 0 14px;
+    font-weight: 500;
+  }
+
+  .edu-item { display: grid; grid-template-columns: 70px 1fr; gap: 20px; padding: 14px 0; border-top: 1px solid var(--line); }
+  .edu-item:first-of-type { border-top: none; }
+  .edu-item .year { font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: var(--navy); font-weight: 600; }
+  .edu-item h5 { font-size: 15px; font-weight: 700; margin: 0 0 4px; }
+  .edu-item p { font-size: 14px; margin: 0; color: var(--text-soft); }
+
+  /* skills */
+
+  .skill-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+  .skill-block h4 {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    color: var(--text-soft);
+    margin: 0 0 14px;
+    font-weight: 500;
+  }
+
+  .chip-row { display: flex; flex-wrap: wrap; gap: 8px; }
+  .chip {
+    background: var(--soft);
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    padding: 6px 13px;
+    font-size: 13px;
+    color: var(--text);
+  }
+
+  .lang-row { display: flex; justify-content: space-between; padding: 9px 0; border-top: 1px solid var(--line); font-size: 14.5px; }
+  .lang-row:first-child { border-top: none; }
+  .lang-row .lvl { color: var(--text-soft); }
+
+  footer {
+    padding: 26px 0 52px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    color: var(--text-soft);
+  }
+
+  @media (max-width: 640px) {
+    .wrap, .wrap-wide { padding: 0 18px; }
+    .hero { padding: 40px 0 34px; }
+    .topbar-inner { flex-direction: column; align-items: flex-start; gap: 12px; }
+    .facts { grid-template-columns: 1fr 1fr; gap: 18px; }
+    .job { grid-template-columns: 1fr; gap: 6px; }
+    .edu-item { grid-template-columns: 1fr; gap: 4px; }
+    .skill-cols { grid-template-columns: 1fr; gap: 24px; }
+    .hero-top { flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+
+  <div class="topbar">
+    <div class="wrap-wide topbar-inner">
+      <div class="lead">
+        <div class="mark">Б</div>
+        <div class="who">Тестовое задание<span>Кандидат: Баранова Евгения</span></div>
+      </div>
+      <a class="btn-back" href="audit-report.html">
+        <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 12L12 4M12 4H6M12 4V10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        К отчёту
+      </a>
+    </div>
+  </div>
+
+  <div class="hero">
+    <div class="wrap-wide">
+      <div class="hero-top">
+        <div>
+          <p class="role">Резюме кандидата</p>
+          <h1>Баранова Евгения</h1>
+          <p class="position">Технолог · фармацевтическое производство</p>
+        </div>
+        <div class="contact-card">
+          <div class="c-row"><span class="c-key">Телефон</span><span>+7 (915) 383-09-73</span></div>
+          <div class="c-row"><span class="c-key">Email</span><span>eva-tori@mail.ru</span></div>
+          <div class="c-row"><span class="c-key">Telegram</span><span>@R_i_c_c_a_r_d_a</span></div>
+          <div class="c-row"><span class="c-key">Город</span><span>Долгопрудный, МО</span></div>
+        </div>
+      </div>
+
+      <div class="facts">
+        <div class="f-item"><span class="f-label">Опыт работы</span><span class="f-val">6 лет</span></div>
+        <div class="f-item"><span class="f-label">Возраст</span><span class="f-val">25 лет</span></div>
+        <div class="f-item"><span class="f-label">Переезд</span><span class="f-val">не готова</span></div>
+        <div class="f-item"><span class="f-label">Командировки</span><span class="f-val">готова</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap">
+
+    <section id="experience">
+      <p class="kicker">Опыт работы</p>
+      <h2>6 лет</h2>
+
+      <div class="job">
+        <div class="period">Февраль 2026 — Август 2026<span class="dur">7 месяцев</span></div>
+        <div>
+          <div class="company-row"><h3>Велфарм</h3><span class="loc">Медицина, фармацевтика, аптеки</span></div>
+          <div class="title">Технолог</div>
+          <p>Актуализация и разработка СОП, ПС, ПР, работа в системе Directum RX. Участие в производственных процессах, обучение персонала. Подготовка к прохождению комиссии МПТ для получения сертификата GMP. Работа в 1С:ERP, 1С:Документация, MS Office.</p>
+        </div>
+      </div>
+
+      <div class="job">
+        <div class="period">Апрель 2025 — Февраль 2026<span class="dur">11 месяцев</span></div>
+        <div>
+          <div class="company-row"><h3>Велфарм</h3><span class="loc">Долгопрудный, МО · фармацевтика</span></div>
+          <div class="title">Мастер цеха</div>
+          <p>Формирование и контроль заданий для смены, работа с документацией, закрытие этапов в 1С:ERP.</p>
+        </div>
+      </div>
+
+      <div class="job">
+        <div class="period">Сентябрь 2020 — Июль 2025<span class="dur">4 года 11 месяцев</span></div>
+        <div>
+          <div class="company-row"><h3>Частная практика</h3></div>
+          <div class="title">Репетитор по математике (6–11 класс)</div>
+          <p>Составление индивидуальных учебных планов, работа с виртуальной доской, дистанционные занятия для повышения успеваемости и подготовки к государственным экзаменам.</p>
+        </div>
+      </div>
+
+      <div class="job">
+        <div class="period">Февраль 2025 — Апрель 2025<span class="dur">3 месяца</span></div>
+        <div>
+          <div class="company-row"><h3>Велфарм</h3><span class="loc">Долгопрудный, МО · фармацевтика</span></div>
+          <div class="title">Аппаратчик синтеза</div>
+          <p>Аппаратчик синтеза, производство пеллет.</p>
+        </div>
+      </div>
+
+      <div class="job">
+        <div class="period">Июль 2024 — Сентябрь 2024<span class="dur">3 месяца</span></div>
+        <div>
+          <div class="company-row"><h3>Велфарм</h3><span class="loc">Долгопрудный, МО · фармацевтика</span></div>
+          <div class="title">Аппаратчик</div>
+          <p>Аппаратчик лиофильной сушки.</p>
+        </div>
+      </div>
+
+      <div class="job">
+        <div class="period">Июнь 2022<span class="dur">1 месяц</span></div>
+        <div>
+          <div class="company-row"><h3>Фармасинтез, ОАО</h3><span class="loc">pharmasyntez.com</span></div>
+          <div class="title">Стажёр</div>
+          <p>Ознакомление с работой отделов контроля качества, обеспечения качества, валидации; со всеми этапами производства твёрдых, жидких, мягких и стерильных лекарственных форм. Участие во внеплановой самоинспекции цеха, изучение правил составления досье на серию, входной контроль субстанций и упаковочных материалов. Работа в физико-химической лаборатории: определение средней массы ТЛФ, анализ растворимости на спектрофотометре, ознакомление с работой ВЭЖХ.</p>
+        </div>
+      </div>
+
+      <div class="job">
+        <div class="period">Октябрь 2020 — Июнь 2021<span class="dur">9 месяцев</span></div>
+        <div>
+          <div class="company-row"><h3>Cybertron</h3></div>
+          <div class="title">Педагог дополнительного образования</div>
+          <p>Составление плана уроков, проведение занятий по робототехнике для детей 5–8 лет.</p>
+        </div>
+      </div>
+
+      <div class="job">
+        <div class="period">Сентябрь 2020 — Февраль 2021<span class="dur">6 месяцев</span></div>
+        <div>
+          <div class="company-row"><h3>Мармелаш</h3></div>
+          <div class="title">Помощник руководителя</div>
+          <p>Ведение бухгалтерии, закупка сопутствующих расходных материалов, ведение соцсетей, поддержка интернет-магазина.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="education">
+      <p class="kicker">Образование</p>
+      <h2>Магистр</h2>
+
+      <div class="edu-group">
+        <div class="edu-item">
+          <div class="year">2025</div>
+          <div>
+            <h5>Национальный исследовательский технологический университет «МИСИС», Москва</h5>
+            <p>Институт новых материалов и нанотехнологий, Биомедицинские наноматериалы · Магистратура</p>
+          </div>
+        </div>
+        <div class="edu-item">
+          <div class="year">2023</div>
+          <div>
+            <h5>Российский химико-технологический университет им. Д. И. Менделеева, Москва</h5>
+            <p>Химико-фармацевтические технологии и биомедицинские препараты, Экспертиза в допинг- и наркоконтроле · Бакалавриат</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="edu-group" style="margin-top:36px">
+        <h4>Повышение квалификации, курсы</h4>
+        <div class="edu-item">
+          <div class="year">2023</div>
+          <div>
+            <h5>Информационные технологии и инструменты цифровизации химических производств</h5>
+            <p>Международная Академия Бизнеса Mendeleev</p>
+          </div>
+        </div>
+        <div class="edu-item">
+          <div class="year">2022</div>
+          <div>
+            <h5>Перевод в сфере профессиональной коммуникации</h5>
+            <p>Центр лингвистического образования РХТУ им. Д. И. Менделеева</p>
+          </div>
+        </div>
+        <div class="edu-item">
+          <div class="year">2021</div>
+          <div>
+            <h5>Техническое регулирование и метрологическое обеспечение химических предприятий</h5>
+            <p>РХТУ им. Д. И. Менделеева</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <p class="kicker">Навыки</p>
+      <h2>Компетенции и языки</h2>
+
+      <div class="skill-cols">
+        <div class="skill-block">
+          <h4>Профессиональные навыки</h4>
+          <div class="chip-row">
+            <span class="chip">Титриметрический анализ</span>
+            <span class="chip">Химические методы анализа</span>
+            <span class="chip">Спектрометрия</span>
+            <span class="chip">Аналитическое мышление</span>
+            <span class="chip">Исполнительность</span>
+            <span class="chip">MS Office</span>
+            <span class="chip">1C:ERP</span>
+            <span class="chip">Компас-3D</span>
+          </div>
+        </div>
+        <div class="skill-block">
+          <h4>Языки</h4>
+          <div class="lang-row"><span>Русский</span><span class="lvl">Родной</span></div>
+          <div class="lang-row"><span>Английский</span><span class="lvl">B1 — средний</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <p class="kicker">Дополнительная информация</p>
+      <h2>Обо мне</h2>
+      <p>При работе ставлю высокую планку, люблю решать нестандартные задачи. Разносторонняя личность, имею много различных хобби. Стремлюсь к получению новых знаний и навыков — имею 6 кю в кэндо, прошла курс робототехники, Школу вожатых Московского Дворца пионеров. Организованна и пунктуальна. Уверенный пользователь Microsoft Office, свободно пользуюсь ПК на Windows и Mac OS.</p>
+    </section>
+
+  </div>
+
+</body>
+</html>
